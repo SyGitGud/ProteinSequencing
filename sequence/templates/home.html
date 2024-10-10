@@ -7,50 +7,72 @@
     <link hred="styles.css" rel="stylesheet" type="text/css">
     <style>
         body {
-            background-color: rgb(56, 104, 150)
+            background-color: rgb(56, 104, 150);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: sans-serif
         }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border: 3px solid black;
+            text-align: center;
+            width: 300px;
+        }
+
+        input, form, select {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding: 5px;
+        }
+
+
     </style>
     <title>Homepage</title>
 </head>
 
-<body >
-    <div style="margin-top: 5%; margin-left: 40%; border:3px; padding:10px; background-color:white; position:absolute; width:300px; text-align:center; height:auto; outline-color:black; outline-style:solid;
-    " >
-     Welcome to the Protein Sequencing page.
-    This project developed by Team 5 is design to create an easy and navigable interface for users seeking to find a complete protein sequence.
-    Using FASTA protein scaffolds format, enter an incomplete protein scaffold in the input, and a complete protein scaffold will be returned.
-    This is done in the background using a Knn model that is tuned, tweaked, and maintained by Team 5. </div>
+<body>
 
-    <!-- Temporary dropdown menu for scaffolds -->
-    <div style="margin-top: 20%; margin-left: 26.5%; margin-bottom: 10%; position:absolute;">
-        Select Model<select style="width: 250px;">
-            <option value=""></option>
-            <option value="Scaffold1">Scaffold 1</option>
-            <option value="Scaffold2">Scaffold 2</option>
-            <option value="Scaffold3">Scaffold 3</option>
-            <option value="Scaffold4">Scaffold 4</option>
-        </select>
-        <br>
+
+    <div class="container">
+        <h2>Welcome to the Protein Sequencing Page</h2>
+        <p>This project, developed by Team 5, is designed to create an easy and navigable interface for users seeking to find a complete protein sequence.</p>
+        <p>Using FASTA protein scaffolds format, enter an incomplete protein scaffold in the input, and a complete protein scaffold will be returned.</p>
+        <p>This is done in the background using a KNN model that is tuned, tweaked, and maintained by Team 5.</p>
+
+        <div class="form">
+            <label for="scaffold">Select Model:</label>
+            <select id="scaffold">
+                <option value="Scaffold1">Scaffold 1</option>
+                <option value="Scaffold2">Scaffold 2</option>
+                <option value="Scaffold3">Scaffold 3</option>
+                <option value="Scaffold4">Scaffold 4</option>
+            </select>
+        </div>
+
+        <div class="form">
+            <label for="incomplete-scaffold">Incomplete Protein Scaffold:</label>
+            <input type="text">
+        </div>
+
+        <div class="form">
+            <label for="completed-scaffold">Completed Protein Scaffold:</label>
+            <input type="text">
+        </div>
+
+        <div class="form">
+            <label for="accuracy">Output Accuracy:</label>
+            <input type="text">
+        </div>
+
+        <div class="form">
+            <label for="training-sequence">Training Sequence:</label>
+            <input type="text">
+        </div>
     </div>
 
-    <div style="margin-left: 20%; position:absolute; margin-top: 22%">
-        <br>
-        <label>Incomplete Protein Scaffold: </label>
-        <!-- Temporary text field for incomplete protein scaffolds -->
-        <input type="text" style="padding: auto; width: 250px;">
-    </div>
-    <div style="margin-left: 20%; position:absolute; margin-top: 24%">
-        <br>
-        <label>Completed Protein Scaffold: </label>
-        <!-- Temporary text field for incomplete protein scaffolds -->
-        <input type="text" style="padding: auto; width: 250px;">
-        <br>
-        <p>Output Accuracy:</p>
-        <input type="text" style="width: 250px;">
-        <br>
-        <p>TrainingSequence:</p>
-        <input type="text" style="padding: auto; width: 250px;">
-    </div>
-    
 </body>
 </html>
