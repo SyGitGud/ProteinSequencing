@@ -79,7 +79,7 @@ DATABASES = {
         'NAME': 'user_login',     # Name of your MySQL database
         'USER': 'dbuser',          # MySQL username
         'PASSWORD': 'proteinyay',      # MySQL password
-        'HOST': '%',              # localhost for now
+        'HOST': 'localhost',              # localhost for now
         'PORT': '3306',                  
     }
 }
