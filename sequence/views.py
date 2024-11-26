@@ -4,7 +4,9 @@ from . import login
 
 def home(request):
     return render(request, 'home.html') #send back our home document
-def loginpage(request):
+def login_views(request):
+    username = ''
+    password = ''
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -13,3 +15,4 @@ def loginpage(request):
         return redirect('home.html')
     else:
         messages.error(request, 'Username or Password is incorrect!')
+    return render(request, 'loginpage.html')

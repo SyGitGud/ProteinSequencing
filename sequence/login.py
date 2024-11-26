@@ -14,24 +14,15 @@ cursor = mydb.cursor()
 
 def loginProcess(username, password):
     userExists = False
-    passExists = False
-    query = "SELECT user_name FROM user_logins"
-    cursor.execute(query)        
-    result = cursor.fetchall()
-    for x in result:
-        if(username == x ):  
-            userExists = True
-            break
-    query = "SELECT user_pass FROM user_logins" 
-    cursor.execute(query)
-    result = cursor
-    for x in result:
-        if(password == x):
-            userExists = True
-            break
-    if (userExists == True and passExists == True):
+    ##passExists = False
+    query = "SELECT * FROM user_logins WHERE user_pass = %s AND user_pass = %s"
+    user = (username, password)
+    cursor.execute(query, user)        
+    if(len(cursor.fetchall()) > 0):
+        print("Right pass")
         return True
-    if (userExists == False or passExists == False):
+    else:
+        print("wrong Pass")
         return False
     
         

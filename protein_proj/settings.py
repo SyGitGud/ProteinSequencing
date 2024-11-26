@@ -76,9 +76,9 @@ WSGI_APPLICATION = 'protein_proj.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'user_login',     # Name of your MySQL database
-        'USER': 'dbuser',          # MySQL username
-        'PASSWORD': 'proteinyay',      # MySQL password
+        'NAME': 'logins',     # Name of your MySQL database
+        'USER': 'root',          # MySQL username
+        'PASSWORD': 'BuddyBoy1',      # MySQL password
         'HOST': 'localhost',              # localhost for now
         'PORT': '3306',                  
     }
