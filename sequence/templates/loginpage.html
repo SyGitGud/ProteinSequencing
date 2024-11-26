@@ -1,0 +1,42 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link hred="styles.css" rel="stylesheet" type="text/css">
+    <style>
+        body {
+            background-color: rgb(56, 104, 150)
+        }
+    </style>
+    <title>Login Page</title>
+</head>
+<body >
+<div class="container">
+    <form method="POST" action="/submit/">
+       {% csrf_token %}
+        <div style="margin-left: 20%; position:absolute; margin-top: 22%">
+            <br>
+            <label>Username: </label>
+            
+            <input type="text" style="padding: auto; width: 250px;" id="username" name ="username">
+        </div>
+        <div style="margin-left: 20%; position:absolute; margin-top: 25%">
+            <br>
+            <label>Password: </label>
+            <input type="text" style="padding: auto; width: 250px;" id ="password" name = "password">
+        </div>
+        <button type="submit">Login</button>
+    </form>
+        {%if messages %}
+        <ul>
+            {%for messages in messages%}
+                <li>{{ message }}</li>
+            {%endfor%}
+        </ul>
+        {%endif%}
+</div>
+</body>
+</html>
