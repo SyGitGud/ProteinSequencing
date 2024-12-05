@@ -2,6 +2,7 @@ import mysql.connector
 from django.urls import path
 from . import views
 from django.shortcuts import redirect
+import re
 
 mydb = mysql.connector.connect(
     host ="localhost",
