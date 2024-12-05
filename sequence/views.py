@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .knn_model import predict_sequence, knn_model
+from .knn_model_for_protein_scaffold.knn_model import predict_sequence, knn_classifier
 from . import login
 
 def login_views(request):
@@ -21,9 +21,8 @@ def home(request):
     if request.method == 'POST':
         user_seq = request.POST.get('scaffold')  # Get the sequence input from the form
         
-        if user_sequence:  # Only process if a sequence is provided
-            # Use the gap_fill_sequence function to predict the filled sequence
-            prediction = gap_fill_sequence(user_seq, knn_model)  # Pass the sequence and model
+        if user_seq:  # Only process if a sequence is provided
+            prediction = gap_fill_sequence(user_seq, knn_classifier)  # Pass the sequence and model
 
     # Render the home page with the prediction
     return render(request, 'home.html', {'prediction': prediction})
