@@ -5,14 +5,29 @@
 <title>W3.CSS Template</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
+.forms{
+  height:200px;
+  width:300px;
+  text-align: center;
+  font-size: 20px;
+  padding: 12 px 20px;
+  margin: 0 auto;
+  }
+
+  .intro{
+    text-align: center;
+  }
+
+
 </style>
 </head>
 <body>
@@ -60,42 +75,24 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 </div>
 
 
-    <div class="container">
+    <div class="intro">
         <h2>Welcome to the Protein Sequencing Page</h2>
         <p>This project, developed by Team 5, is designed to create an easy and navigable interface for users seeking to find a complete protein sequence.</p>
         <p>Using FASTA protein scaffolds format, enter an incomplete protein scaffold in the input, and a complete protein scaffold will be returned.</p>
         <p>This is done in the background using a KNN model that is tuned, tweaked, and maintained by Team 5.</p>
-
-        <div class="form">
-            <label for="scaffold">Select Model:</label>
-            <select id="scaffold">
-                <option value="Scaffold1">Scaffold 1</option>
-                <option value="Scaffold2">Scaffold 2</option>
-                <option value="Scaffold3">Scaffold 3</option>
-                <option value="Scaffold4">Scaffold 4</option>
-            </select>
-        </div>
-
-        <div class="form">
-            <label for="incomplete-scaffold">Incomplete Protein Scaffold:</label>
-            <input type="text">
-        </div>
-
-        <div class="form">
-            <label for="completed-scaffold">Completed Protein Scaffold:</label>
-            <input type="text">
-        </div>
-
-        <div class="form">
-            <label for="accuracy">Output Accuracy:</label>
-            <input type="text">
-        </div>
-
-        <div class="form">
-            <label for="training-sequence">Training Sequence:</label>
-            <input type="text">
-        </div>
     </div>
+
+    <div class="forms">
+      <form method="POST" action="{% url 'home' %}">
+          {% csrf_token %}
+          <label for="incomplete-scaffold">Incomplete Protein Scaffold:</label> <br>
+          <input type="text" class="text_input" name="scaffold"> <br>
+          <input type="submit" value="submit">
+      </form>
+      {% if prediction %}
+        <p>Predicted Sequence: {{ prediction }}</p>
+      {% endif %}
+  </div>
 
 <!-- Second Grid -->
 <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
@@ -146,4 +143,3 @@ function myFunction() {
 
 </body>
 </html>
-
