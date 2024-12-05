@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .knn_model import predict_sequence, gap_fill_sequence, knn_model
+from .knn_model import predict_sequence, knn_model
 from . import login
 
 def login_views(request):
