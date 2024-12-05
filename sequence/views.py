@@ -19,7 +19,7 @@ def home(request):
     prediction = None  # Default value for prediction
 
     if request.method == 'POST':
-        user_seq = request.POST.get('user_seq')  # Get the sequence input from the form
+        user_seq = request.POST.get('scaffold')  # Get the sequence input from the form
         
         if user_sequence:  # Only process if a sequence is provided
             # Use the gap_fill_sequence function to predict the filled sequence
