@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .knn_model_for_protein_scaffold.knn_model import predict_sequence, knn_classifier
+from requests import request
+##from .knn_model_for_protein_scaffold.knn_model import predict_sequence, knn_classifier
 from . import login
 
 def login_views(request):
@@ -23,14 +24,29 @@ def login_views(request):
         
     return render(request, 'loginpage.html')
 def home(request):
-    prediction = None  # Default value for prediction
 
-    if request.method == 'POST':
-        user_seq = request.POST.get('scaffold')  # Get the sequence input from the form
-        
-        if user_seq:  # Only process if a sequence is provided
-            prediction = gap_fill_sequence(user_seq, knn_classifier)  # Pass the sequence and model
+   ## prediction = None  # Default value for prediction
 
-    # Render the home page with the prediction
-    return render(request, 'home.html', {'prediction': prediction})
     
+    if 'info_button' in request.POST:
+            print("receiving post")
+            return redirect('infopage')
+    if 'login_button' in request.POST:
+            print("works")
+            return redirect('loginpage')
+    ##if request.method == 'POST':
+     ##   user_seq = request.POST.get('scaffold')  # Get the sequence input from the form
+        
+     ##   if user_seq:  # Only process if a sequence is provided
+      ##      prediction = gap_fill_sequence(user_seq, knn_classifier)  # Pass the sequence and model
+
+    # Render the home page with the prediction , {'prediction': prediction}
+    return render(request, 'home.html')
+    
+def infopage(request):
+
+    if 'home_button' in request.POST:
+        return redirect(request, 'home.html')
+    if 'login_button' in request.POST:
+        return redirect(request, 'loginpage.html')
+    return render(request, 'information_page.html')
