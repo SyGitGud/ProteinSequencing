@@ -10,10 +10,17 @@ def login_views(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
     user = login.loginProcess(username, password)
-    if(user == True):
-        return redirect('home.html')
-    else:
-        messages.error(request, 'Username or Password is incorrect!')
+    if 'login_button' in request.POST:
+        user = login.loginProcess(username, password)
+        if(user == True):
+            return redirect('home.html')
+        else:
+            messages.error(request, "Username or Password is incorrect!")
+    if 'register_button' in request.POST:
+        user=login.registerProcess(username, password)
+        if(user==True):
+            messages.success(request, "Registration successful please log in.")
+        
     return render(request, 'loginpage.html')
 def home(request):
     prediction = None  # Default value for prediction
@@ -26,3 +33,4 @@ def home(request):
 
     # Render the home page with the prediction
     return render(request, 'home.html', {'prediction': prediction})
+    

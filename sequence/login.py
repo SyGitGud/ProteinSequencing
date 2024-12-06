@@ -62,3 +62,5 @@ def registerProcess(username, password):
     #Tells database to execute written query for creating account
     cursor.execute(sqlFormula, user)
     mydb.commit()
+    print("register button works")
+    return True
