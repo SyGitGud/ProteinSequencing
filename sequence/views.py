@@ -34,14 +34,14 @@ def home(request):
     if 'login_button' in request.POST:
             print("works")
             return redirect('loginpage')
-    ##if request.method == 'POST':
-     ##   user_seq = request.POST.get('scaffold')  # Get the sequence input from the form
+    if request.method == 'POST':
+        user_seq = request.POST.get('scaffold')  # Get the sequence input from the form
         
-     ##   if user_seq:  # Only process if a sequence is provided
-      ##      prediction = gap_fill_sequence(user_seq, knn_classifier)  # Pass the sequence and model
+        if user_seq:  # Only process if a sequence is provided
+            prediction = gap_fill_sequence(user_seq, knn_classifier)  # Pass the sequence and model
 
-    # Render the home page with the prediction , {'prediction': prediction}
-    return render(request, 'home.html')
+    # Render the home page with the prediction 
+    return render(request, 'home.html', {'prediction': prediction})
     
 def infopage(request):
 
