@@ -8,7 +8,6 @@ def loaded_model():
     import joblib
     import numpy as np
     import ast
-    # Get the directory of the current script (knn_model.py)
     script_dir = os.path.dirname(os.path.realpath(__file__))
 
     # Construct file paths for CHAR_TO_INT.txt and INT_TO_CHAR.txt
@@ -34,13 +33,12 @@ def sequence_to_numeric(sequence, CHAR_TO_INT):
 #gap filling
 
 def predict_sequence(user_seq, knn_model, CHAR_TO_INT, INT_TO_CHAR):
-    # Split the user sequence into 11-length subsequences (k-mers)
     new_seq = []
     for count, i in enumerate(range(len(user_seq) - 11 + 1)):
         kmer = user_seq[i:i + 11]
         new_seq = new_seq + [kmer]
 
-    # Fill the gaps in the sequence
+# Fill the gaps in the sequence
 def predict_sequence(user_seq, knn_model, CHAR_TO_INT, INT_TO_CHAR):
     # Split the user sequence into 11-length subsequences (k-mers)
     new_seq = []
@@ -60,18 +58,15 @@ def predict_sequence(user_seq, knn_model, CHAR_TO_INT, INT_TO_CHAR):
 
     # Fill the gaps in the sequence
     while "-" in user_seq:
-        # Find k-mers with exactly one gap ("-")
+        # Find k-mers with  one gap
         keys_with_dash = [key for key in new_seq if key.count('-') == 1]
 
-        # If no single-gap k-mers are found, check for double-gap k-mers
         if len(keys_with_dash) == 0:
             keys_with_dash = [key for key in new_seq if key.count('-') == 2]
 
-        # If there are no k-mers with gaps, break out of the loop
         if len(keys_with_dash) == 0:
             break
 
-        # Iterate over the k-mers with gaps
         for k in keys_with_dash:
             if k[0] == "-" or k[10] == "-":
                 if k in user_seq:
@@ -85,17 +80,12 @@ def predict_sequence(user_seq, knn_model, CHAR_TO_INT, INT_TO_CHAR):
 
                     print("Predicted value for k-mer", k, ":", predicted_value)
 
-                    # Find the index of the gap and replace it with the predicted value
                     index = user_seq.index(k)
                     index1 = k.index("-")
-                    print("Index of k-mer in user_seq:", index)
-                    print("Index of gap in k-mer:", index1)
 
                     if 0 <= (index + index1) < len(user_seq):
-                        # Replace the gap with the predicted value
                         user_seq = user_seq[:(index + index1)] + predicted_value + user_seq[(index + index1) + 1:]
 
-                        # Update new_seq with the newly modified sequence
                         new_seq = [user_seq[i:i + 11] for i in range(len(user_seq) - 11 + 1)]
                         print("Updated sequence after filling:", user_seq)
                         print("Updated k-mers:", new_seq)
