@@ -44,8 +44,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Info Page</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Login</a>
+    <a href="{% url 'infopage' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Information Page</a>
+    <a href="{% url 'loginpage' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Login</a>
   </div>
 </div>
 
