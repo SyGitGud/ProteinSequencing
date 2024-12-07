@@ -31,7 +31,7 @@ def loginpage(request):
                 # Create a new user
                 registered_user = User.objects.create(username=username)
                 registered_user.set_password(password)
-                registered_user.save()
+                registered_user.save() #save the user and maintain the user sessions
                 messages.success(request, "Registration successful. Please log in.")
                 return redirect('loginpage')  #allow them to login now that there is a user in table
     return render(request, 'loginpage.html')
