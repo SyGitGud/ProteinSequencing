@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="../static/styles.css" type="text/css" rel="stylesheet">
+		<title>Information Page</title>
+		<style>
+			h1 {
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Information Page</h1>
+		<h2>About the Product</h2>
+		<p>
+			The product is developed by the members of Team 5 for COMP 496: Senior Project II. This product 
+			uses an AI, transformer model for protein scaffolding.
+		</p>
+		<h3>Vision</h3>
+		<p>
+			The product's vision is to create an informative introduction to working with models that predict 
+			complete protein scaffolds from incomplete protein scaffolds by using a clean and detailed 
+			interface.
+		</p>
+		<h2>What does the model do?</h2>
+		<p>The model contextualizes patterns in training datasets.</p>
+		<h2>How does the model work?</h2>
+		<p>
+			The model uses the k-nearest neighbor (KNN) algorithm to take an incomplete scaffold, fill in the 
+			scaffold gaps, and output the complete scaffold and training data.
+		</p>
+		<h2>What is the purpose of the model?</h2>
+		<p>
+			The purpose of the model is to predict and complete protein sequences that are only partially 
+			known to researchers.
+		</p>
+		<h2>How to use this product?</h2>
+		<ol>
+			<li>Select a scaffold from the dropdown menu.</li>
+			<li>Enter the incomplete scaffold in the textbox.</li>
+			<li>Press the enter key.</li>
+			<li>
+				The complete scaffold, output accuracy, and training sequence will be displayed to the 
+				corresponding textfield.
+			</li>
+			<!-- No submit button yet -->
+			<!--<li>Click submit.</li>-->
+		</ol>
+		<h2>What are protein scaffolds?</h2>
+		<p>Protein scaffolds are molecules of protein that binds to other protein.</p>
+		<h2>Which database is used for the product?</h2>
+		<p>The database used for the product is MySQL.</p>
+		<a href="home.html"><button>Homepage</button></a>
+	</body>
+</html>
