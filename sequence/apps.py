@@ -6,8 +6,8 @@ class SequenceConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'sequence'
     def ready(self):
-        # Initialize the variables when the app is ready
+        # Initialize the vars upon app loading, meaning the model will only load once instead of each time there is a request
         self.knn_classifier, self.CHAR_TO_INT, self.INT_TO_CHAR = loaded_model()
     def get_knn_model(self):
-        # This method allows you to access the model attributes
+        # Note to everyone: these are not global variables
         return self.knn_classifier, self.CHAR_TO_INT, self.INT_TO_CHAR
