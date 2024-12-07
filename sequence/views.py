@@ -58,3 +58,11 @@ def home(request):
     
     # Home page with prediction (if applicable)
     return render(request, 'home.html', {'prediction': prediction})
+
+def infopage(request):
+
+    if 'home_button' in request.POST:
+        return redirect('home')
+    if 'login_button' in request.POST:
+        return redirect('loginpage')
+    return render(request, 'information_page.html')
