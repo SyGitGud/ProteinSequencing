@@ -17,8 +17,9 @@ Our senior project where we use an AI transformer model to take an incomplete pr
      # activate for linux/mac
      source venv/bin/activate 
    ```
-5. Install required packages using 'pip install -r requirements.txt'
-6. Set up environemnt variables:
+5. Install required packages using:
+   `pip install -r requirements.txt'`
+7. Set up environemnt variables:
   - ### For Linux/Mac, Run:
     ```bash
     chmod +x gen_env.sh
