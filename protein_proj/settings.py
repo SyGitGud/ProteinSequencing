@@ -126,3 +126,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 LOGIN_URL = '/login/' #redirects ALWAYS to loginpage if user isn't logged in
+
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_COOKIE_AGE = 7200 #two hour sessions 
+
+SESSION_COOKIE_SECURE = True  
+SESSION_COOKIE_HTTPONLY = True 
