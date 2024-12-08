@@ -10,7 +10,12 @@ Our senior project where we use an AI transformer model to take an incomplete pr
 2. Navigate to project directory in command line of choice. 
 3. Create and activate a virtual environment:
      ```powershell
+     #create
    python -m venv venv
+     #activate for windows:
+     .\venv\Scripts\activate
+     # activate for linux/mac
+     source venv/bin/activate 
    ```
 5. Install required packages using 'pip install -r requirements.txt'
 6. Set up environemnt variables:
