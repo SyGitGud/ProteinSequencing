@@ -11,7 +11,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<title>Information Page</title>
 		<style>
-			body,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif; text-align: center;}
+			body,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif, text-align: center;}
 			
 		</style>
 	</head>
@@ -21,59 +21,65 @@
 		<div class="w3-bar w3-red w3-card w3-left-align w3-large">
 		  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
 		  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">About</a>
-		  <a href="{% url 'home' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" name = "home_button">Home</a>
+		  <a href="{% url 'home' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" name = "home_button">Home</button>
 		  <a href="{% url 'loginpage' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" name = "login_button">Login</a>
 	  
 		</div>
 	  
 		<!-- Navbar on small screens -->
 		<div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-		  <a href="{% url 'home' %}" class="w3-bar-item w3-button w3-padding-large" name = "home_button">Home</a>
-		  <a href="{% url 'home' %}" class="w3-bar-item w3-button w3-padding-large"name = "login_button">Login</a>
+		  <a href="home.html" class="w3-bar-item w3-button w3-padding-large" name = "home_button">Home</a>
+		  <a href="loginpage.html" class="w3-bar-item w3-button w3-padding-large"name = "login_button">Login</a>
 		</div>
 	  </div>
 	</form>
 	<header class="w3-container w3-red w3-center" style="padding:80px 16px">
 		<h1 class="w3-margin w3-jumbo">Information Page</h1>
 	</header>
-	<div class = "w3-container w3-center">
+	<div class = "w3-row-padding w3-padding-64 w3-container">
+		<div class="w3-content">
 			<h2>About the Product</h2>
 		<p>
 			The product is developed by the members of Team 5 for COMP 496: Senior Project II. This product 
 			uses an AI, transformer model for protein scaffolding.
 		</p>
-		<h2 class = " w3-panel w3-topbar w3-border -black">Vision</h2>
+		<br>
+		<h2 class = " w3-panel w3-topbar w3-border-grey">Vision</h2>
 		<p>
 			The product's vision is to create an informative introduction to working with models that predict 
 			complete protein scaffolds from incomplete protein scaffolds by using a clean and detailed 
 			interface.
 		</p>
-		<h2 class = " w3-panel w3-topbar w3-border-black">What does the model do?</h2>
+		<br>
+		<h2 class = " w3-panel w3-topbar w3-border-grey">What does the model do?</h2>
 		<p>The model contextualizes patterns in training datasets.</p>
-		<h2 class = " w3-panel w3-topbar w3-border-black">How does the model work?</h2>
+		<br>
+		<h2 class = " w3-panel w3-topbar w3-border-grey">How does the model work?</h2>
 		<p>
 			The model uses the k-nearest neighbor (KNN) algorithm to take an incomplete scaffold, fill in the 
 			scaffold gaps, and output the complete scaffold and training data.
 		</p>
-		<h2 class = " w3-panel w3-topbar w3-border-black">What is the purpose of the model?</h2>
+		<br>
+		<h2 class = " w3-panel w3-topbar w3-border-grey">What is the purpose of the model?</h2>
 		<p>
 			The purpose of the model is to predict and complete protein sequences that are only partially 
 			known to researchers.
 		</p>
-		<h2 class = "w3-panel w3-topbar w3-border-black">How to use this product?</h2>
-		<ol>
-			<li>Select a scaffold from the dropdown menu.</li>
+		<br>
+		<h2 class = "w3-panel w3-topbar w3-border-grey">How to use this product?</h2>
+		<ul>
 			<li>Enter the incomplete scaffold in the textbox.</li>
 			<li>Click the submit button.</li>
 			<li>
 				The complete scaffold, output accuracy, and training sequence will be displayed to the 
 				corresponding textfield.
 			</li>
-		</ol>
-		<h2 class = " w3-panel w3-topbar w3-border-black">What are protein scaffolds?</h2>
+		</ul>
+		<h2 class = " w3-panel w3-topbar w3-border-grey">What are protein scaffolds?</h2>
 		<p>Protein scaffolds are molecules of protein that binds to other protein.</p>
-		<h2 class = " w3-panel w3-topbar w3-border-black">Which database is used for the product?</h2>
-		<p>The database used for the product is SQLite.</p>
+		<h2 class = " w3-panel w3-topbar w3-border-grey">Which database is used for the product?</h2>
+		<p>The database used for the product is SQLite3.</p>
+		</div>
 	</div>
 	</body>
 </html>
