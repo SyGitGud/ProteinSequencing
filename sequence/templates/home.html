@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Protein Filling</title>
+<title>Scaffold Filler</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -15,7 +15,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
 .forms{
-  height:200px;
+  height:150px;
   width:300px;
   text-align: center;
   font-size: 20px;
@@ -23,7 +23,19 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   margin: 0 auto;
   }
 
-  .intro{
+.result {
+    text-align: center;
+    font-size: 20px;
+    padding: 12 px 20px;
+    margin: 0 auto;
+
+  }
+
+  #submit {
+    border-radius: 10px;
+  }
+
+.intro{
     text-align: center;
   }
 
@@ -39,6 +51,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
     <a href="{% url 'infopage' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Information Page</a>
     <a href="{% url 'loginpage' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Login</a>
+    <a href= "{%url 'log_out' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Logout</a>
 
   </div>
 
@@ -46,6 +59,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
     <a href="{% url 'infopage' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Information Page</a>
     <a href="{% url 'loginpage' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Login</a>
+    <a href= "{%url 'log_out' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Logout</a>
   </div>
 </div>
 
@@ -59,7 +73,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <div class="w3-row-padding w3-padding-64 w3-container">
   <div class="w3-content">
     <div class="w3-twothird">
-      <h1>Protein Scaffold Filler</h1>
+      <h1>Hello {{user}}</h1>
         <p class="w3-text-grey">This project, developed by Team 5, is designed to create an easy and navigable interface for users seeking to find a complete protein sequence.</p>
         <p class="w3-text-grey">Using FASTA protein scaffolds format, enter an incomplete protein scaffold in the input, and a complete protein scaffold will be returned.</p>
         <p class="w3-text-grey">This is done in the background using a KNN model that is tuned, tweaked, and maintained by Team 5.</p>
@@ -67,34 +81,55 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <p class="w3-text-grey">A final project made by student of Computer Science at North Carolina Agricultural and Technical State University. </p>
     </div>
 
-    <div class="w3-third w3-center">
-    </div>
+
   </div>
 </div>
 
 
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
     <div class="forms">
       <form method="POST" action="{% url 'home' %}">
           {% csrf_token %}
           <label for="incomplete-scaffold">Incomplete Protein Scaffold:</label> <br>
           <input type="text" class="text_input" name="scaffold" required> <br>
-          <input type="submit" value="Submit">
+          <input type="submit" value="Submit" id="submit">
       </form>
-    
-      {% if prediction %}
-          <h3>Predicted Sequence:</h3>
-          <p>{{ prediction }}</p>
-      {% endif %}
     </div>
+    
+    <div class="result">
+      {% if prediction %}
+          <h3>Incomplete Scaffold: {{scaffold}}</h3>
+          <h3>Predicted Sequence: {{ prediction }} </h3>
+      {% endif %}
+      {% if train_accuracy and accurate%}
+        <p>Training Accuracy: {{ train_accuracy }}</p>
+        <p>Testing Accuracy: {{ accurate }}</p>
+
+    {% endif %}
+  </div>
+  </div>
 
 <!-- Second Grid -->
-<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+<div class="w3-row-padding w3-dark-grey w3-padding-64 w3-container">
   <div class="w3-content">
     <div class="w3-center w3-center">
 
       <h5 class="w3-padding-32">Testing accuracy is the prediction accuracy. These are the odds that our model correctly classified the missing amino acids in your protein scaffold. </h5>
       <h5 class="w3-padding-32">When using this application, you understand that there is always a small chance incorrectly classified amino acids.</h5>
-      <h5 class="w3-padding-32">You may download the history of your inputs and model outputs</h5>
+      <h5 class="w3-padding-32">You may download the history of your inputs and model outputs here:</h5>
+      <div class="forms">
+      <form method="POST" action="{% url 'history' %}">
+        {% csrf_token %} 
+        <input type="hidden" name="hist" value="Download">
+        <input type="submit" value="Download">
+      </form>
+      <h5 class="w3-padding-32">Or clear your history: </h5>
+        <form method="POST" action="{% url 'history' %}">
+          {% csrf_token %} 
+          <input type="hidden" name="hist" value="Clear">
+          <input type="submit" value="Clear">
+      </form>
+    </div>
 
 
 
@@ -127,3 +162,4 @@ function myFunction() {
 
 </body>
 </html>
+
