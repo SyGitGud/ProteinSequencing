@@ -189,17 +189,17 @@ def predict_seq(de_novo_sequence):
 
 
     while "-" in de_novo_sequence:
+        keys_with_dash = []
         print("Content", new_seq)
-        keys_with_dash = [key for key in new_seq if key.count('-') == 1]
-        keys_with_dash = [key for key in new_seq if '-' in key]
-        print("keys_with_dash (at least one dash):", keys_with_dash)
-        keys_with_dash = [key for key in new_seq if key.count('-') == 1]
-        print("keys_with_dash (exactly one dash):", keys_with_dash)
-        keys_with_dash = [key for key in new_seq if '--' in key]
-        print("keys_with_dash (at least one '--'):", keys_with_dash)
-        keys_with_dash = [key for key in new_seq if key.count('-') > 1]
-        print("keys_with_dash (more than one dash):", keys_with_dash)
-        break
+        if any(key.count('-') >= 1 and '--' not in key for key in new_seq):
+            keys_with_dash = [key for key in new_seq if key.count('-') >= 1 and '--' not in key]
+            print("keys_with_dash (multiple non-consecutive '-'): ", keys_with_dash)
+
+        if any(key.count('--') >= 1 and '---' not in key for key in new_seq):
+            keys_with_dash = [key for key in new_seq if key.count('--') >= 1 and '---' not in key]
+            print("keys_with_dash (multiple non-consecutive '--'): ", keys_with_dash)
+
+        print(keys_with_dash)
 
         for k in keys_with_dash:
             print("yay")
@@ -230,32 +230,6 @@ def predict_seq(de_novo_sequence):
             
         # Print the predicted sequence for the de novo sequence
     return de_novo_sequence
-
-
-
-def add_color(s, color):
-    """Wrap string in ANSI color codes for terminal display."""
-    colors = {
-        "black": "\033[30m",   # Black text
-        "green": "\033[32m",   # Green text
-        "red": "\033[31m",     # Red text
-        "reset": "\033[0m"     # Reset to default
-    }
-    return f'{colors[color]}{s}{colors["reset"]}'
-
-def compare_sequences(target, denovo, predicted):
-    """Compare target, denovo, and predicted sequences and assign colors based on conditions."""
-    result = []
-    
-    for t, d, p in zip(target, denovo, predicted):
-        if t == d == p:
-            result.append(add_color(p, "reset"))  
-        elif t == p and t != d:
-            result.append(add_color(p, "green"))  
-        else:
-            result.append(add_color(p, "red"))  
-
-    return "".join(result)
 
 
 
