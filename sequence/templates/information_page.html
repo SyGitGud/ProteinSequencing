@@ -5,7 +5,6 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-		<link rel="stylesheet" href="styles.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -15,8 +14,8 @@
 			
 		</style>
 	</head>
-	<form method = "POST" action = ''>
-	{% csrf_token %}
+	
+	
 	<div class="w3-top">
 		<div class="w3-bar w3-red w3-card w3-left-align w3-large">
 		  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
@@ -32,7 +31,7 @@
 		  <a href="loginpage.html" class="w3-bar-item w3-button w3-padding-large"name = "login_button">Login</a>
 		</div>
 	  </div>
-	</form>
+	
 	<header class="w3-container w3-red w3-center" style="padding:80px 16px">
 		<h1 class="w3-margin w3-jumbo">Information Page</h1>
 	</header>
@@ -40,46 +39,41 @@
 		<div class="w3-content">
 			<h2>About the Product</h2>
 		<p>
-			The product is developed by the members of Team 5 for COMP 496: Senior Project II. This product 
-			uses an AI, transformer model for protein scaffolding.
+			The web application is developed by the members of Team 5 for COMP 496: Senior Project II. This product uses an AI model with a K Nearest-Neighbor algorithm. This locally hosted website was created using Django, CSS, HTML, and SQLite3. 
 		</p>
 		<br>
-		<h2 class = " w3-panel w3-topbar w3-border-grey">Vision</h2>
+		<h2>Vision</h2>
 		<p>
 			The product's vision is to create an informative introduction to working with models that predict 
 			complete protein scaffolds from incomplete protein scaffolds by using a clean and detailed 
 			interface.
 		</p>
 		<br>
-		<h2 class = " w3-panel w3-topbar w3-border-grey">What does the model do?</h2>
-		<p>The model contextualizes patterns in training datasets.</p>
-		<br>
-		<h2 class = " w3-panel w3-topbar w3-border-grey">How does the model work?</h2>
+		<h2 class =>How does the model work?</h2>
 		<p>
 			The model uses the k-nearest neighbor (KNN) algorithm to take an incomplete scaffold, fill in the 
 			scaffold gaps, and output the complete scaffold and training data.
 		</p>
 		<br>
-		<h2 class = " w3-panel w3-topbar w3-border-grey">What is the purpose of the model?</h2>
+		<h2>What is the purpose of the model?</h2>
 		<p>
-			The purpose of the model is to predict and complete protein sequences that are only partially 
-			known to researchers.
+			The purpose of the model is to predict and complete protein sequences that are only partially known to researchers.
+<br>There has been ample current work on the subject:
 		</p>
 		<br>
-		<h2 class = "w3-panel w3-topbar w3-border-grey">How to use this product?</h2>
+		<h2>How to use this product?</h2>
 		<ul>
-			<li>Enter the incomplete scaffold in the textbox.</li>
+			<li>Follow the README instructions for setup
+            <li>Enter the incomplete scaffold in the textbox.</li>
 			<li>Click the submit button.</li>
 			<li>
-				The complete scaffold, output accuracy, and training sequence will be displayed to the 
-				corresponding textfield.
+				The complete scaffold, output accuracy, and training sequence will be displayed to the corresponding textfield.
 			</li>
 		</ul>
-		<h2 class = " w3-panel w3-topbar w3-border-grey">What are protein scaffolds?</h2>
-		<p>Protein scaffolds are molecules of protein that binds to other protein.</p>
-		<h2 class = " w3-panel w3-topbar w3-border-grey">Which database is used for the product?</h2>
-		<p>The database used for the product is SQLite3.</p>
-		</div>
+		<h2 >Read More:</h2>
+		<a href="https://link.springer.com/chapter/10.1007/978-981-99-7074-2_42" target="_blank"> A Convolutional Denoising Autoencoder for Protein Scaffold Filling</a> <br>
+        <a href="https://ieeexplore.ieee.org/document/10098062" target="_blank"> Deep Learning Approaches for the Protein Scaffold Filling Problem</a>
+
 	</div>
 	</body>
 </html>
