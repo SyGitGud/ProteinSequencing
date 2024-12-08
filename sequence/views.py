@@ -3,12 +3,14 @@ from .apps import SequenceConfig  # Import from apps
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 import csv
 from django.contrib.auth.decorators import login_required
 from .knn_model_for_protein_scaffold.knn_model import predict_seq, calc_accuracy
 from .models import History
+
 
 def log_out(request):
     logout(request)
@@ -33,12 +35,16 @@ def loginpage(request):
             if User.objects.filter(username=username).exists():
                 messages.error(request, "Username already exists. Please choose another.")
             else:
-                # Create a new user
-                registered_user = User.objects.create(username=username)
-                registered_user.set_password(password)
-                registered_user.save() #save the user and maintain the user sessions
-                messages.success(request, "Registration successful. Please log in.")
-                return redirect('loginpage')  #allow them to login now that there is a user in table
+                try:
+                    validate_password(password)
+                    # Create a new user
+                    registered_user = User.objects.create(username=username) #pass by object in Django to prevent sql injection
+                    registered_user.set_password(password) #have to use set password for encryption and safety
+                    registered_user.save() #save the user and maintain the user sessions
+                    messages.success(request, "Registration successful. Please log in.")
+                    return redirect('loginpage')  #allow them to login now that there is a user in table
+                except Exception as e:
+                    messages.error(request, f"Password Denied: {e}")
     return render(request, 'loginpage.html')
 
 
@@ -65,7 +71,11 @@ def history(request): #downloading history and clearing it
                 return redirect('home')
 
 
-
+@login_required
+def delete_account(request):
+        user = request.user
+        user.delete()
+        return redirect('log_out')
 
 
 
