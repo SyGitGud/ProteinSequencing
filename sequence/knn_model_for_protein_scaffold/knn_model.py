@@ -136,6 +136,9 @@ y_pred = knn_model.predict(X_val)
 accuracy =  accuracy_score(y_val, y_pred)
 print("testing Accuracy :",accuracy)
 
+def calc_accuracy():
+    return accuracy_train, accuracy
+
 #load trained model
 import joblib
 import numpy as np
