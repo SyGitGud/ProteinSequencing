@@ -31,10 +31,9 @@ Our senior project where we use an AI transformer model to take an incomplete pr
     ```
 6. If the packages below are NOT installed, install these packages using:
     ```powershell
-    # Install if there is an error with using any of the commands in the previous step
+    # Use if there is an error with setting up the environmental variables
     pip install Django
-
-    # Install if there is an error with using the commands in the next step
+    # Use the following if there is an error with running migrations
     pip install python-decouple
     pip install numpy
     pip install Scikit-learn
