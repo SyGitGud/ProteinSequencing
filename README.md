@@ -29,7 +29,7 @@ Our senior project where we use an AI transformer model to take an incomplete pr
     ```bash
     ./gen_env.ps1
     ```
-6. If the packages below are NOT installed, install these packages using:
+6. If there are any errors with steps 4 and 5 and the next step, install the packages below using:
     ```powershell
     # Use if there is an error with setting up the environmental variables
     pip install Django
