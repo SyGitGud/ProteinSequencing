@@ -8,8 +8,10 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 import csv
 from django.contrib.auth.decorators import login_required
-from .knn_model_for_protein_scaffold.knn_model import predict_seq, calc_accuracy
+from .knn_model_for_protein_scaffold.knn_model import predict_seq
+from .knn_model_for_protein_scaffold.train_knn import calc_accuracy
 from .models import History
+import os
 
 
 def log_out(request):
