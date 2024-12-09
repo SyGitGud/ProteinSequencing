@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
@@ -72,8 +72,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <!-- First Grid -->
 <div class="w3-row-padding w3-padding-64 w3-container">
   <div class="w3-content">
-    <div class="w3-twothird">
-      <h1>Hello {{user}}</h1>
+  <h1>Hello {{user}}</h1>
+    <div class="w3-twothird" style="align-items: center;">
         <p class="w3-text-grey">This project, developed by Team 5, is designed to create an easy and navigable interface for users seeking to find a complete protein sequence.</p>
         <p class="w3-text-grey">Using FASTA protein scaffolds format, enter an incomplete protein scaffold in the input, and a complete protein scaffold will be returned.</p>
         <p class="w3-text-grey">This is done in the background using a KNN model that is tuned, tweaked, and maintained by Team 5.</p>
@@ -81,8 +81,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <p class="w3-text-grey">A final project made by student of Computer Science at North Carolina Agricultural and Technical State University. </p>
     </div>
 
-    <div class="w3-third">
-      <img src="{% static 'scaffold.jpg' %}" alt="Protein Scaffold" style="width:300px; border-radius: 6px; margin-left:10px; object-fit: cover;">
+    <div class="w3-third" style= "display: flex; justify-content: center; align-items: center;">
+      <i class="fas fa-dna fa-10x"></i>
     </div>
 
 
