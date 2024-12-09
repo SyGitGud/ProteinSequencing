@@ -18,8 +18,8 @@ Our senior project where we use an AI transformer model to take an incomplete pr
      source venv/bin/activate 
    ```
 5. Install required packages using:
-   `pip install -r requirements.txt'`
-7. Set up environemnt variables:
+   `pip install -r requirements.txt`
+7. Set up environment variables:
   - ### For Linux/Mac, Run:
     ```bash
     chmod +x gen_env.sh
